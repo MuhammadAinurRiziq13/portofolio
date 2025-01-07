@@ -20,8 +20,6 @@ const Hero = () => {
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             Full-Stack Developer 
-            <br className='sm:block hidden' />
-            specializing in both front-end and back-end technologies.
           </p>
         </div>
       </div>
@@ -50,3 +48,4 @@ const Hero = () => {
 };
 
 export default Hero;
+// ubah
