@@ -27,7 +27,7 @@ const App = () => {
 
         {/* Sections lainnya */}
         <About />
-        {/* <Experience /> */}
+        <Experience />
         <Tech />
         <Works />
         {/* <Feedbacks /> */}

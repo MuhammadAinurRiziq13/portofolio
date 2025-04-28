@@ -17,6 +17,7 @@ import {
   docker,
   meta,
   starbucks,
+  sekawan,
   tesla,
   shopify,
   carrent,
@@ -30,10 +31,12 @@ import {
   python,
   postgre,
   mysql,
+  vuejs,
   blog,
   canteen,
   port,
-  presensia
+  presensia,
+  lcquiz
 } from "../assets";
 
 export const navLinks = [
@@ -88,6 +91,10 @@ const technologies = [
     icon: reactjs,
   },
   {
+    name: "Vue JS",
+    icon: vuejs,
+  },
+  {
     name: "Tailwind CSS",
     icon: tailwind,
   },
@@ -100,24 +107,12 @@ const technologies = [
     icon: laravel,
   },
   {
-    name: "Dart",
-    icon: dart,
-  },
-  {
     name: "Flutter",
     icon: flutter,
   },
   {
     name: "Python",
     icon: python,
-  },
-  {
-    name: "PostgreSQL",
-    icon: postgre,
-  },
-  {
-    name: "MySQL",
-    icon: mysql,
   },
   {
     name: "git",
@@ -127,57 +122,59 @@ const technologies = [
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Fullstack Developer Internship",
+    company_name: "Sekawan Media",
+    icon: sekawan,
+    iconBg: "#0B1623",
+    date: "Januari 2025 - Juni 2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Developing and maintaining web applications using Laravel and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Building and consuming RESTful APIs for application functionality.",
+      "Utilizing Git for version control and project collaboration."
     ],
   },
-  {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
+  
+  // {
+  //   title: "React Native Developer",
+  //   company_name: "Tesla",
+  //   icon: tesla,
+  //   iconBg: "#E6DEDD",
+  //   date: "Jan 2021 - Feb 2022",
+  //   points: [
+  //     "Developing and maintaining web applications using React.js and other related technologies.",
+  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //     "Implementing responsive design and ensuring cross-browser compatibility.",
+  //     "Participating in code reviews and providing constructive feedback to other developers.",
+  //   ],
+  // },
+  // {
+  //   title: "Web Developer",
+  //   company_name: "Shopify",
+  //   icon: shopify,
+  //   iconBg: "#383E56",
+  //   date: "Jan 2022 - Jan 2023",
+  //   points: [
+  //     "Developing and maintaining web applications using React.js and other related technologies.",
+  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //     "Implementing responsive design and ensuring cross-browser compatibility.",
+  //     "Participating in code reviews and providing constructive feedback to other developers.",
+  //   ],
+  // },
+  // {
+  //   title: "Full stack Developer",
+  //   company_name: "Meta",
+  //   icon: meta,
+  //   iconBg: "#E6DEDD",
+  //   date: "Jan 2023 - Present",
+  //   points: [
+  //     "Developing and maintaining web applications using React.js and other related technologies.",
+  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //     "Implementing responsive design and ensuring cross-browser compatibility.",
+  //     "Participating in code reviews and providing constructive feedback to other developers.",
+  //   ],
+  // },
 ];
 
 const testimonials = [
@@ -287,7 +284,27 @@ const projects = [
     ],
     image: presensia,
     source_code_link: "https://github.com/MuhammadAinurRiziq13/presensia"
-  }
+  },
+  {
+    name: "LC Quizz",
+    description: "LC Quiz is a web application for managing quizzes, students, and teachers at Lembaga Bimbingan Belajar Lentera Cendekia, built using Laravel, InertiaJS, and VueJS, featuring interactive quizzes, user management, and result reporting.",
+    tags: [
+      {
+        name: "Laravel",
+        color: "pink-text-gradient"
+      },
+      {
+        name: "Vuejs",
+        color: "green-text-gradient"
+      },
+      {
+        name: "PostgreSQL",
+        color: "blue-text-gradient"
+      }
+    ],
+    image: lcquiz,
+    source_code_link: ""
+  },
 ];
 
 
