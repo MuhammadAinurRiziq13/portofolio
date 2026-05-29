@@ -7,25 +7,41 @@ const RockPaperScissors = () => {
   const [aiChoice, setAiChoice] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
   const [score, setScore] = useState({ user: 0, ai: 0 });
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const play = (choice: string) => {
-    const ai = CHOICES[Math.floor(Math.random() * CHOICES.length)];
+    if (isSpinning) return;
+    
     setUserChoice(choice);
-    setAiChoice(ai);
+    setResult("AI is choosing...");
+    setIsSpinning(true);
 
-    if (choice === ai) {
-      setResult("Draw!");
-    } else if (
-      (choice === "🪨" && ai === "✂️") ||
-      (choice === "📄" && ai === "🪨") ||
-      (choice === "✂️" && ai === "📄")
-    ) {
-      setResult("You Win!");
-      setScore(s => ({ ...s, user: s.user + 1 }));
-    } else {
-      setResult("AI Wins!");
-      setScore(s => ({ ...s, ai: s.ai + 1 }));
-    }
+    let count = 0;
+    const interval = setInterval(() => {
+      setAiChoice(CHOICES[count % CHOICES.length]);
+      count++;
+    }, 100);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      const ai = CHOICES[Math.floor(Math.random() * CHOICES.length)];
+      setAiChoice(ai);
+      setIsSpinning(false);
+
+      if (choice === ai) {
+        setResult("Draw!");
+      } else if (
+        (choice === "🪨" && ai === "✂️") ||
+        (choice === "📄" && ai === "🪨") ||
+        (choice === "✂️" && ai === "📄")
+      ) {
+        setResult("You Win!");
+        setScore(s => ({ ...s, user: s.user + 1 }));
+      } else {
+        setResult("AI Wins!");
+        setScore(s => ({ ...s, ai: s.ai + 1 }));
+      }
+    }, 1500);
   };
 
   return (
@@ -52,7 +68,15 @@ const RockPaperScissors = () => {
 
       <div className="rps-controls">
         {CHOICES.map(c => (
-          <button key={c} className="rps-btn" onClick={() => play(c)}>{c}</button>
+          <button 
+            key={c} 
+            className="rps-btn" 
+            onClick={() => play(c)}
+            disabled={isSpinning}
+            style={{ opacity: isSpinning ? 0.6 : 1, cursor: isSpinning ? "not-allowed" : "pointer" }}
+          >
+            {c}
+          </button>
         ))}
       </div>
       
