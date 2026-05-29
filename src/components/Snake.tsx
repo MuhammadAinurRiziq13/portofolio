@@ -12,7 +12,7 @@ const Snake = () => {
   const [isStarted, setIsStarted] = useState<boolean>(false);
 
   const generateFood = useCallback(() => {
-    let newFood;
+    let newFood: number[];
     while (true) {
       newFood = [Math.floor(Math.random() * GRID_SIZE), Math.floor(Math.random() * GRID_SIZE)];
       // eslint-disable-next-line no-loop-func
