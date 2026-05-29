@@ -145,7 +145,7 @@ const Hero = () => {
           </div>
 
           {/* Floating tech pills */}
-          <div className="hero-float-pill hero-float-pill--1">⚡ WebRTC</div>
+          <div className="hero-float-pill hero-float-pill--1">⚡ Full-Stack</div>
           <div className="hero-float-pill hero-float-pill--2">🤖 AI / ML</div>
           <div className="hero-float-pill hero-float-pill--3">🟣 Kotlin Android</div>
         </div>
