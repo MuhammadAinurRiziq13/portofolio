@@ -5,10 +5,12 @@ const Projects = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const openModal = (images: string[]) => {
     setCurrentImages(images);
     setCurrentIndex(0);
+    setImageLoading(true);
     setModalOpen(true);
   };
 
@@ -18,11 +20,13 @@ const Projects = () => {
 
   const nextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
+    setImageLoading(true);
     setCurrentIndex((prev) => (prev + 1) % currentImages.length);
   };
 
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
+    setImageLoading(true);
     setCurrentIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
   };
 
@@ -108,10 +112,18 @@ const Projects = () => {
           <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="project-modal-close" onClick={closeModal}>×</button>
             <div className="project-modal-img-container">
+              {imageLoading && (
+                <div className="project-modal-skeleton">
+                  <div className="skeleton-spinner"></div>
+                  <span className="skeleton-text">LOADING...</span>
+                </div>
+              )}
               <img 
                 src={currentImages[currentIndex]} 
                 alt="Project Screenshot" 
                 className="project-modal-img" 
+                onLoad={() => setImageLoading(false)}
+                style={{ display: imageLoading ? "none" : "block" }}
               />
             </div>
             
