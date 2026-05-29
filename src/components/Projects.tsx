@@ -113,17 +113,16 @@ const Projects = () => {
             <button className="project-modal-close" onClick={closeModal}>×</button>
             <div className="project-modal-img-container">
               {imageLoading && (
-                <div className="project-modal-skeleton">
-                  <div className="skeleton-spinner"></div>
-                  <span className="skeleton-text">LOADING...</span>
+                <div className="project-modal-loader-overlay">
+                  <div className="loader-spinner"></div>
+                  <span className="loader-text">LOADING</span>
                 </div>
               )}
               <img 
                 src={currentImages[currentIndex]} 
                 alt="Project Screenshot" 
-                className="project-modal-img" 
+                className={`project-modal-img ${imageLoading ? "img-loading" : ""}`}
                 onLoad={() => setImageLoading(false)}
-                style={{ display: imageLoading ? "none" : "block" }}
               />
             </div>
             
