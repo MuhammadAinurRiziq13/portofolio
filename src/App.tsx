@@ -22,12 +22,12 @@ function App() {
         let ip = 'Unknown';
         let location = 'Unknown';
         try {
-          const res = await fetch('https://ipapi.co/json/');
+          const res = await fetch('https://ipinfo.io/json');
           const ipData = await res.json();
-          ip = ipData.ip;
-          location = `${ipData.city}, ${ipData.country_name}`;
+          ip = ipData.ip || 'Unknown';
+          location = ipData.city ? `${ipData.city}, ${ipData.country}` : 'Unknown';
         } catch (e) {
-          console.error("Gagal mengambil IP");
+          console.error("Gagal mengambil IP:", e);
         }
 
         const userAgent = navigator.userAgent;
