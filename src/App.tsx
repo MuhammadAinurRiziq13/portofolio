@@ -30,7 +30,28 @@ function App() {
           console.error("Gagal mengambil IP:", e);
         }
 
-        const userAgent = navigator.userAgent;
+        const parseUserAgent = (ua: string) => {
+          let browser = "Unknown Browser";
+          let os = "Unknown OS";
+
+          if (ua.includes("Firefox")) browser = "Firefox";
+          else if (ua.includes("SamsungBrowser")) browser = "Samsung Internet";
+          else if (ua.includes("Opera") || ua.includes("OPR")) browser = "Opera";
+          else if (ua.includes("Edge") || ua.includes("Edg")) browser = "Edge";
+          else if (ua.includes("Chrome")) browser = "Chrome";
+          else if (ua.includes("Safari")) browser = "Safari";
+
+          if (ua.includes("Windows NT 10.0")) os = "Windows 10/11";
+          else if (ua.includes("Mac OS X")) os = "macOS";
+          else if (ua.includes("Android")) os = "Android";
+          else if (ua.includes("Linux")) os = "Linux";
+          else if (ua.includes("iPhone") || ua.includes("iPad")) os = "iOS";
+
+          return `${browser} - ${os}`;
+        };
+
+        const rawUA = navigator.userAgent;
+        const userAgent = parseUserAgent(rawUA);
 
         await fetch('https://script.google.com/macros/s/AKfycbxiZldmNy45p6movg-NaoCjUk0AviWzFNcuNiBhZz4F79hXC9pnseIJMnh-pzQpj7mdpg/exec', {
           method: 'POST',
