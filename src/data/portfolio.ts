@@ -8,7 +8,7 @@ export const personal = {
   nickname: "Riziq",
   location: "Lamongan, Indonesia",
   tagline:  "Full-Stack Developer & AI/ML Engineer",
-  bio:      "Teknik Informatika semester 8 di Politeknik Negeri Malang — passionate di software engineering, web, mobile, dan AI integration. Saya membangun produk nyata dengan React, Vue, Laravel, Flutter, FastAPI, dan Go.",
+  bio:      "Junior Fullstack Developer — passionate membangun produk web & mobile nyata dari desain hingga produksi. Stack: React, Vue, Laravel, FastAPI, Flutter & Go.",
   email:    "riziqainur13@gmail.com",
   phone:    "+6281998166297",
   github:   "https://github.com/MuhammadAinurRiziq13",
@@ -86,8 +86,8 @@ export const skills: Skill[] = [
 export const education = [
   {
     institution: "Politeknik Negeri Malang",
-    major:       "Teknik Informatika",
-    period:      "2022 – Sekarang",
+    major:       "D-IV Teknik Informatika",
+    period:      "Agustus 2022 – Juli 2026",
     gpa:         "3.85",
   },
   {
@@ -101,27 +101,30 @@ export const education = [
 // ── Experience ──────────────────────────────────────────────
 export const experiences = [
   {
+    title:   "Junior Fullstack Developer",
+    company: "PT. Teknologi Sunan Drajat",
+    period:  "Jan 2026 – Sekarang",
+    points: [
+      "Mengembangkan aplikasi transaksi PPOB (Payment Point Online Bank) berbasis web menggunakan React dan Laravel mencakup alur transaksi, manajemen produk, dan integrasi API pihak ketiga.",
+      "Mengimplementasikan fitur dan antarmuka sesuai kebutuhan tim, serta melakukan debugging dan perbaikan bug pada aplikasi yang sedang berjalan.",
+    ],
+  },
+  {
     title:   "Fullstack Developer Intern",
     company: "PT. Teknologi Sunan Drajat",
-    period:  "2025",
+    period:  "Juli 2025 – Des 2025",
     points: [
-      "Mengembangkan dua aplikasi SaaS berbasis web menggunakan Laravel dan React.",
-      "Membangun sistem informasi manajemen santri dengan fitur-fitur lengkap.",
-      "Mengembangkan platform manajemen pembayaran ISP end-to-end.",
-      "Implementasi fitur bisnis kompleks, optimasi performa, dan debugging.",
-      "Kolaborasi aktif dalam tim pengembangan software industri.",
+      "Mengembangkan dua aplikasi Software as a Service (SaaS) berbasis web menggunakan Laravel dan React, yaitu sistem informasi manajemen santri dan platform manajemen pembayaran ISP.",
+      "Mengimplementasikan fitur-fitur bisnis inti, melakukan optimasi performa dan debugging, serta berkolaborasi dalam tim pengembangan software berskala industri.",
     ],
   },
   {
     title:   "Fullstack Developer Intern",
     company: "Sekawan Media Informatika",
-    period:  "2025",
+    period:  "Jan – Juni 2025",
     points: [
-      "Mengembangkan aplikasi manajemen audit dan arsip berbasis web.",
-      "Menggunakan stack Laravel, React, dan CodeIgniter secara bersamaan.",
-      "Pengembangan fitur full-stack dari UI hingga database layer.",
-      "Optimasi performa aplikasi dan debugging pada lingkungan produksi.",
-      "Berkolaborasi lintas tim dalam siklus pengembangan software industri.",
+      "Mengembangkan aplikasi manajemen audit dan arsip berbasis web menggunakan Laravel, React, dan CodeIgniter.",
+      "Melakukan pengembangan fitur full-stack, optimasi performa, dan debugging dalam lingkungan pengembangan software industri secara kolaboratif.",
     ],
   },
 ];
@@ -184,9 +187,9 @@ export const projects = [
     highlight:   true,
   },
   {
-    name:        "Password Manager & Remote Access",
-    description: "Sistem credential management dan remote access SSH/RDP via browser menggunakan Apache Guacamole, dengan fitur real-time session dan Redis caching.",
-    tags:        ["Go", "SvelteKit", "PostgreSQL", "Redis", "WebSocket"],
+    name:        "ACC-Manage",
+    description: "Sistem credential management dan remote access SSH/RDP via browser dengan real-time session. Mendukung manajemen akun terpusat dengan Apache Guacamole dan Redis caching.",
+    tags:        ["Go", "SvelteKit", "PostgreSQL", "Redis", "WebSocket", "Apache Guacamole"],
     images:      [passmanagerCover, passmanagerImg1, passmanagerImg2, passmanagerImg3],
     githubLink:  "",
     highlight:   true,
@@ -224,9 +227,9 @@ export const projects = [
     highlight:   false,
   },
   {
-    name:        "LCQuis",
-    description: "Aplikasi kuis online dengan fitur leaderboard real-time, manajemen soal, dan sistem skor. Dibangun untuk kebutuhan evaluasi pembelajaran interaktif.",
-    tags:        ["Laravel", "MySQL", "Bootstrap"],
+    name:        "LCQuizz",
+    description: "Aplikasi web pengelolaan quiz interaktif untuk lembaga bimbingan belajar. Mencakup manajemen soal, siswa, dan guru dengan antarmuka modern.",
+    tags:        ["Laravel", "InertiaJS", "Vue JS", "MySQL"],
     images:      [lcquisCover, lcquisImg1],
     githubLink:  "",
     highlight:   false,
@@ -240,8 +243,8 @@ export const projects = [
     highlight:   false,
   },
   {
-    name:        "SIMACAM",
-    description: "Sistem transaksi dan pelaporan penjualan kasir berbasis web. Dibangun dengan PHP Native menggunakan arsitektur MVC, terintegrasi dengan MySQL.",
+    name:        "SIMACAN",
+    description: "Sistem transaksi dan pelaporan penjualan kantin berbasis web dengan pola arsitektur MVC. Dibangun menggunakan PHP Native dan MySQL.",
     tags:        ["PHP Native", "MySQL", "Bootstrap", "MVC"],
     images:      [canteenCover],
     githubLink:  "https://github.com/MuhammadAinurRiziq13/web-kantin-mvc",

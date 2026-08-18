@@ -22,36 +22,15 @@ function App() {
         let ip = 'Unknown';
         let location = 'Unknown';
         try {
-          const res = await fetch('https://ipinfo.io/json');
+          const res = await fetch('https://ipapi.co/json/');
           const ipData = await res.json();
-          ip = ipData.ip || 'Unknown';
-          location = ipData.city ? `${ipData.city}, ${ipData.country}` : 'Unknown';
+          ip = ipData.ip;
+          location = `${ipData.city}, ${ipData.country_name}`;
         } catch (e) {
-          console.error("Gagal mengambil IP:", e);
+          console.error("Gagal mengambil IP");
         }
 
-        const parseUserAgent = (ua: string) => {
-          let browser = "Unknown Browser";
-          let os = "Unknown OS";
-
-          if (ua.includes("Firefox")) browser = "Firefox";
-          else if (ua.includes("SamsungBrowser")) browser = "Samsung Internet";
-          else if (ua.includes("Opera") || ua.includes("OPR")) browser = "Opera";
-          else if (ua.includes("Edge") || ua.includes("Edg")) browser = "Edge";
-          else if (ua.includes("Chrome")) browser = "Chrome";
-          else if (ua.includes("Safari")) browser = "Safari";
-
-          if (ua.includes("Windows NT 10.0")) os = "Windows 10/11";
-          else if (ua.includes("Mac OS X")) os = "macOS";
-          else if (ua.includes("Android")) os = "Android";
-          else if (ua.includes("Linux")) os = "Linux";
-          else if (ua.includes("iPhone") || ua.includes("iPad")) os = "iOS";
-
-          return `${browser} - ${os}`;
-        };
-
-        const rawUA = navigator.userAgent;
-        const userAgent = parseUserAgent(rawUA);
+        const userAgent = navigator.userAgent;
 
         await fetch('https://script.google.com/macros/s/AKfycbxiZldmNy45p6movg-NaoCjUk0AviWzFNcuNiBhZz4F79hXC9pnseIJMnh-pzQpj7mdpg/exec', {
           method: 'POST',

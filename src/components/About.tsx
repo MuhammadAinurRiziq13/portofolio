@@ -13,25 +13,17 @@ const About = () => {
         <div className="about-grid">
           <div className="about-text">
             <p>
-              Saya <strong>Muhammad Ainur Riziq</strong>, mahasiswa{" "}
-              <strong>Teknik Informatika semester 8</strong> di{" "}
-              <strong>Politeknik Negeri Malang</strong> dengan IPK{" "}
-              <strong>3.85</strong>. Lahir di Lamongan, passionate di
-              bidang software engineering, web, mobile, dan integrasi AI.
+              Saya <strong>Muhammad Ainur Riziq</strong>, Junior Fullstack
+              Developer lulusan <strong>D-IV Teknik Informatika</strong> Politeknik
+              Negeri Malang (IPK <strong>3.85</strong>).
             </p>
             <br />
             <p>
-              Saya membangun aplikasi full-stack menggunakan{" "}
-              <strong>React, Vue, Laravel, FastAPI, dan Go</strong>, serta
-              pengembangan mobile dengan <strong>Flutter</strong>. Familiar
-              dengan teknologi real-time seperti{" "}
-              <strong>WebRTC, WebSocket, dan Firebase</strong>, serta
-              integrasi AI/ML ke dalam produk nyata.
-            </p>
-            <br />
-            <p>
-              Berpengalaman magang di dua perusahaan teknologi — membangun
-              sistem SaaS, aplikasi audit, dan manajemen data skala industri.
+              Passionate membangun produk web & mobile nyata dari desain
+              hingga produksi. Stack utama:{" "}
+              <strong>React, Vue, Laravel, FastAPI, Go</strong>, dan familiar
+              dengan <strong>WebRTC, WebSocket, Firebase</strong>, serta
+              integrasi AI/ML.
             </p>
           </div>
 
@@ -45,9 +37,9 @@ const About = () => {
             </div>
             <div className="about-stat-card" style={{ borderTop: "5px solid var(--accent-cyan)" }}>
               <div className="about-stat-number" style={{ color: "var(--accent-cyan)", WebkitTextStroke: "1px #0A0A0A" }}>
-                2×
+                3
               </div>
-              <div className="about-stat-label">Internships</div>
+              <div className="about-stat-label">Work Experiences</div>
             </div>
             <div className="about-stat-card" style={{ borderTop: "5px solid var(--accent-purple)" }}>
               <div className="about-stat-number" style={{ color: "var(--accent-purple)", WebkitTextStroke: "1px #0A0A0A" }}>

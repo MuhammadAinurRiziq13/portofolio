@@ -2045,145 +2045,145 @@ button, input, textarea {
 .snake-body { background: var(--color-text); border: 1px solid var(--color-bg); }
 .snake-food { background: var(--accent-red); border-radius: 50%; }
 
-/* 4. Slot Machine */
-.slot-machine-wrapper {
+/* 4. Casino Slot Machine ─────────────────────────────────── */
+
+/* Outer wrapper */
+.cs-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Main layout: machine + sidebar */
+.cs-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Machine ── */
+.cs-machine {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
+  max-width: 480px;
 }
 
-.slot-marquee {
+.cs-marquee {
   width: 100%;
   background: var(--accent-red);
-  color: var(--color-bg);
+  color: #fff;
   font-family: var(--font-mono);
   font-weight: 900;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-align: center;
   padding: 0.5rem 1rem;
   border: var(--border-thick);
   border-bottom: none;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  animation: csMarquee 2s ease-in-out infinite;
 }
+@keyframes csMarquee { 0%,100% { opacity:1; } 50% { opacity:0.75; } }
 
-.slot-machine-body {
+.cs-body {
   width: 100%;
   background: var(--color-surface);
   border: var(--border-thick);
-  padding: 1.25rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.slot-machine-base {
-  width: 85%;
-  height: 14px;
+.cs-base {
+  width: 82%;
+  height: 12px;
   background: var(--color-text);
   border-radius: 0 0 8px 8px;
 }
 
-.slot-coin-display {
-  background: var(--color-text);
-  color: var(--accent-yellow);
-  font-family: var(--font-mono);
-  font-weight: 900;
-  font-size: 1rem;
-  text-align: center;
-  padding: 0.4rem 1rem;
-  border-radius: var(--radius-sm);
-  letter-spacing: 0.05em;
-}
-
-.slot-jackpot-meter {
-  background: linear-gradient(135deg, #1a0a00, #3d1a00);
-  border: var(--border-thick);
-  border-color: var(--accent-orange);
-  border-radius: var(--radius-sm);
-  padding: 0.5rem 1rem;
+/* HUD bar */
+.cs-hud {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  gap: 0.5rem;
 }
-
-.jackpot-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  color: var(--accent-orange);
-}
-
-.jackpot-value {
-  font-family: var(--font-mono);
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: var(--accent-yellow);
-  animation: jackpotPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes jackpotPulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.6; }
-}
-
-.slot-window {
-  background: #111;
-  border: var(--border-thick);
-  border-radius: var(--radius-sm);
-  padding: 0.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.slot-payline {
-  width: 100%;
-  height: 3px;
-  background: var(--accent-red);
-  opacity: 0.7;
-  margin: 0.25rem 0;
-}
-
-.slot-payline-mid {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  background: transparent;
-}
-
-.payline-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: bold;
-  color: var(--accent-red);
-  letter-spacing: 0.1em;
-}
-
-.slot-reels {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  padding: 0.5rem 0;
-}
-
-/* Each reel is a clipped window showing exactly 1 cell */
-.slot-reel-window {
+.cs-hud-item {
   flex: 1;
-  height: 80px;
-  overflow: hidden;
-  position: relative;
-  background: var(--color-bg);
-  border: 3px solid #333;
-  border-radius: 4px;
+  background: #111;
+  border: 2px solid #333;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
+  gap: 0.1rem;
+}
+.cs-hud-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: #666;
+}
+.cs-hud-value {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 0.95rem;
 }
 
-/* The strip inside — JS controls translateY directly */
-.slot-reel-strip {
+/* Grid area: payline dots + reels */
+.cs-grid-area {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.cs-payline-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 4px;
+  padding: 4px 0;
+  width: 12px;
+}
+.cs-pl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Reels container: 4 columns */
+.cs-reels {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  background: #0a0a0a;
+  border: var(--border-thick);
+  border-color: #333;
+  border-radius: var(--radius-sm);
+  padding: 6px;
+  box-shadow: inset 0 2px 12px #000a;
+}
+
+/* Each reel window — shows exactly 3 rows */
+.cs-reel-window {
+  position: relative;
+  height: 240px; /* CELL_H × ROWS = 80 × 3 */
+  overflow: hidden;
+  background: #050505;
+  border: 2px solid #222;
+  border-radius: 4px;
+  /* Top & bottom fade */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+/* The scrolling strip inside */
+.cs-reel-strip {
   position: absolute;
   top: 0;
   left: 0;
@@ -2191,151 +2191,311 @@ button, input, textarea {
   will-change: transform;
 }
 
-/* Each individual symbol cell */
-.slot-reel-cell {
+/* Single symbol cell */
+.cs-reel-cell {
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   user-select: none;
 }
 
-.slot-result-box {
-  background: var(--color-bg);
-  border: var(--border-thin);
-  border-radius: var(--radius-sm);
-  padding: 0.5rem 1rem;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-weight: bold;
-  font-size: 0.95rem;
-  min-height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slot-result-jackpot { color: #d97706; }
-.slot-result-two { color: var(--accent-cyan); }
-.slot-result-none { color: var(--color-muted); }
-
-.slot-spin-btn {
-  width: 100%;
-  background: var(--accent-yellow);
-  color: var(--color-text);
-  border: var(--border-thick);
-  border-radius: var(--radius-sm);
-  box-shadow: 5px 5px 0px var(--color-text);
-  padding: 0.9rem;
-  font-family: var(--font-mono);
-  font-weight: 900;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-.slot-spin-btn:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 7px 7px 0px var(--color-text); background: var(--accent-orange); }
-.slot-spin-btn:active:not(:disabled) { transform: translate(5px, 5px); box-shadow: 0px 0px 0px var(--color-text); }
-.slot-spin-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-/* Layout: machine centered, rules pinned to the right absolutely */
-.slot-game-layout {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  min-height: 400px;
-}
-
-.slot-rules {
+/* Row highlight overlay (per row inside a reel) */
+.cs-row-highlight {
   position: absolute;
-  left: calc(50% + 185px);
-  bottom: 0;
-  width: 240px;
-  background: var(--color-surface);
-  border: var(--border-thin);
+  left: 0;
+  right: 0;
+  height: 80px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  pointer-events: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cs-row-highlight--win {
+  animation: csRowFlash 0.6s ease-in-out 3;
+}
+@keyframes csRowFlash {
+  0%,100% { opacity:1; }
+  50%      { opacity:0.3; }
+}
+
+/* Win lines summary */
+.cs-win-lines {
+  background: #0a0a0a;
+  border: 2px solid #222;
   border-radius: var(--radius-sm);
-  padding: 0.6rem 0.75rem;
-}
-
-@media (max-width: 700px) {
-  .slot-game-layout { flex-direction: column; align-items: center; min-height: unset; }
-  .slot-rules { position: static; width: 100%; max-width: 320px; }
-}
-
-.slot-rules-title {
-  font-family: var(--font-mono);
-  font-weight: 900;
-  font-size: 0.7rem;
-  margin: 0 0 0.35rem 0;
-  letter-spacing: 0.05em;
-}
-
-.slot-rules-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem 1rem;
-}
-
-.slot-rules-list li {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--color-muted);
-}
-
-.slot-rules-list li strong { color: var(--color-text); }
-
-.slot-symbol-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.25rem;
-}
-
-.slot-symbol-badge {
-  font-size: 1.4rem;
-  background: var(--color-bg);
-  border: var(--border-thin);
-  border-radius: 4px;
-  padding: 0.15rem 0.3rem;
-}
-
-.slot-rules-title {
-  font-family: var(--font-mono);
-  font-weight: 900;
-  font-size: 0.8rem;
-  margin: 0 0 0.5rem 0;
-  letter-spacing: 0.05em;
-}
-
-.slot-rules-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 0.4rem 0.6rem;
+  min-height: 2.2rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-
-.slot-rules-list li {
+.cs-win-empty {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--color-muted);
+  text-align: center;
+  padding: 0.2rem;
+}
+.cs-win-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  border-left: 3px solid;
+  padding-left: 0.5rem;
+  animation: csWinSlide 0.3s ease-out;
+}
+@keyframes csWinSlide { from { opacity:0; transform:translateX(-8px); } to { opacity:1; transform:none; } }
+.cs-win-symbols { flex: 1; }
+.cs-win-coins { font-weight: 900; color: var(--accent-yellow); }
+
+/* Buttons */
+.cs-btn-row {
+  display: flex;
+  gap: 0.5rem;
+}
+.cs-spin-btn {
+  flex: 1;
+  background: var(--accent-yellow);
+  color: #000;
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  box-shadow: 4px 4px 0 var(--color-text);
+  padding: 0.8rem;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.cs-spin-btn:hover:not(:disabled) { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--color-text); background: var(--accent-orange); }
+.cs-spin-btn:active:not(:disabled) { transform: translate(4px,4px); box-shadow: 0 0 0 var(--color-text); }
+.cs-spin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.cs-auto-btn {
+  background: var(--color-bg);
+  color: var(--color-muted);
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  box-shadow: 3px 3px 0 #333;
+  padding: 0.8rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
+  white-space: nowrap;
+}
+.cs-auto-btn:hover:not(:disabled) { background: #222; transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #333; }
+.cs-auto-btn--on { background: var(--accent-red); color: #fff; border-color: var(--accent-red); animation: csAutoPulse 1s ease-in-out infinite; }
+@keyframes csAutoPulse { 0%,100%{box-shadow:3px 3px 0 #7f0000;} 50%{box-shadow:5px 5px 0 #7f0000;} }
+.cs-auto-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.cs-reset-btn {
+  width: 100%;
+  background: transparent;
+  color: var(--color-muted);
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.cs-reset-btn:hover { background: var(--color-surface); color: var(--color-text); }
+
+/* Settings */
+.cs-settings-toggle {
+  width: 100%;
+  background: transparent;
+  color: var(--color-muted);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  text-align: left;
+  transition: color 0.15s;
+}
+.cs-settings-toggle:hover { color: var(--color-text); }
+
+.cs-settings {
+  background: #0a0a0a;
+  border: 2px solid #222;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  animation: csFadeIn 0.2s ease-out;
+}
+@keyframes csFadeIn { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:none} }
+
+.cs-setting-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.cs-setting-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  min-width: 60px;
+}
+.cs-setting-opts {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.cs-opt-btn {
+  background: #1a1a1a;
+  color: var(--color-muted);
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+.cs-opt-btn:hover:not(:disabled) { background: #2a2a2a; color: var(--color-text); }
+.cs-opt-btn--active { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); font-weight: 900; }
+.cs-opt-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Big Win Overlay ── */
+.cs-bigwin-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000b;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: csFadeIn 0.3s ease-out;
+}
+.cs-bigwin-banner {
+  background: #1a1000;
+  border: 4px solid var(--accent-yellow);
+  border-radius: 16px;
+  padding: 2.5rem 4rem;
+  text-align: center;
+  box-shadow: 0 0 60px var(--accent-yellow)66;
+  animation: csBounceIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes csBounceIn { from{transform:scale(0.5);opacity:0;} to{transform:scale(1);opacity:1;} }
+.cs-bigwin-emoji { font-size: 4rem; }
+.cs-bigwin-text {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent-yellow);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 20px var(--accent-yellow);
+  animation: csBigWinPulse 0.8s ease-in-out infinite;
+}
+@keyframes csBigWinPulse { 0%,100%{text-shadow:0 0 20px var(--accent-yellow);} 50%{text-shadow:0 0 40px var(--accent-yellow),0 0 60px #fff6;} }
+.cs-bigwin-amount { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 900; color: #fff; margin-top: 0.5rem; }
+.cs-bigwin-sub { font-size: 0.75rem; color: #777; margin-top: 0.75rem; font-family: var(--font-mono); }
+
+/* ── Sidebar ── */
+.cs-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 220px;
+  flex-shrink: 0;
 }
 
-.slot-rules-list li strong {
-  color: var(--color-text);
+.cs-panel {
+  background: var(--color-surface);
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+}
+.cs-panel-title {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
 }
 
-@keyframes slotSpin {
-  0%   { transform: translateY(-6px); }
-  50%  { transform: translateY(6px); }
-  100% { transform: translateY(-6px); }
+/* Paytable */
+.cs-paytable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
 }
+.cs-paytable th {
+  text-align: left;
+  color: var(--color-muted);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #333;
+}
+.cs-paytable td {
+  padding: 0.18rem 0;
+  vertical-align: middle;
+}
+.cs-paytable tr:hover td { background: #ffffff08; }
+.cs-paytable td:nth-child(2),
+.cs-paytable td:nth-child(3) {
+  text-align: right;
+  color: var(--accent-yellow);
+  font-weight: 700;
+}
+
+/* Paylines list */
+.cs-paylines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.cs-pl-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.cs-pl-swatch {
+  width: 14px;
+  height: 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.cs-pl-name { color: var(--color-muted); }
+.cs-panel-note {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .cs-layout { flex-direction: column; align-items: center; }
+  .cs-sidebar { width: 100%; max-width: 480px; flex-direction: row; }
+  .cs-panel { flex: 1; }
+}
+@media (max-width: 480px) {
+  .cs-sidebar { flex-direction: column; }
+  .cs-reels { gap: 3px; padding: 4px; }
+  .cs-reel-window { height: 210px; } /* 70px × 3 */
+  .cs-reel-cell { height: 70px; font-size: 1.6rem; }
+  .cs-row-highlight { height: 70px; }
+}
+
+
+
+
 
 /* 5. Rock Paper Scissors */
 .rps-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
